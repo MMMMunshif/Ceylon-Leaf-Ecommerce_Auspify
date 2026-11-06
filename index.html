@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ceylon Leaf — Single-estate teas from Sri Lanka</title>
+<meta name="description" content="Single-estate Ceylon tea, sorted by the elevation it grows at.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#shop">Skip to products</a>
+<header class="top"><div class="wrap bar">
+  <a class="logo" href="#top">Ceylon Leaf</a>
+  <nav aria-label="Main navigation"><a href="#shop">Shop</a><a href="#about">About</a><button id="orders-open" class="link-btn" type="button">Orders</button></nav>
+  <button id="cart-open" class="bag" type="button" aria-label="Open shopping bag"><span>Bag</span> <b id="cart-count" aria-live="polite">0</b></button>
+</div></header>
+
+<main id="top">
+<section class="hero wrap">
+  <div>
+    <h1>Tea, sorted by<br>how high it grows.</h1>
+    <p class="lead">Single-estate Ceylon teas from five regions. The higher the garden, the lighter the cup. Pick an elevation to start.</p>
+    <a class="btn" href="#shop">Shop all teas</a>
+  </div>
+  <div class="ladder" role="group" aria-label="Filter teas by growing region and elevation"><p class="ladder-title">Regions by elevation</p><div id="ladder"></div></div>
+</section>
+
+<section class="shop" id="shop"><div class="wrap">
+  <div class="shop-head"><h2>The collection</h2><p id="results-count" aria-live="polite"></p></div>
+  <div class="tools">
+    <div id="category-list" class="chips" role="group" aria-label="Filter teas by type"></div>
+    <input id="product-search" type="search" placeholder="Search teas" aria-label="Search teas">
+    <select id="sort-products" aria-label="Sort products"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A to Z</option></select>
+  </div>
+  <div id="region-note" class="region-note" hidden></div>
+  <div class="grid" id="product-grid" aria-label="Tea products"></div>
+  <div class="empty" id="empty-state" hidden><h3>No teas match.</h3><p>Clear the filters to see everything.</p><button id="clear-filters" class="btn" type="button">Clear filters</button></div>
+</div></section>
+
+<section class="about wrap" id="about">
+  <h2>Bought from the estate,<br>not the auction.</h2>
+  <div class="facts">
+    <p><b>Single estate</b>Every tin names the garden, the elevation and the harvest.</p>
+    <p><b>Packed in Sri Lanka</b>Sealed within days of the pluck, so the leaf stays fresh.</p>
+    <p><b>Ships worldwide</b>Island-wide delivery in 2–3 days. International in 7–10.</p>
+  </div>
+</section>
+
+<section class="news"><div class="wrap news-in">
+  <h2>Get harvest updates</h2>
+  <form id="newsletter-form"><input id="newsletter-email" type="email" required placeholder="Email address" aria-label="Email address"><button class="btn gold" type="submit">Subscribe</button><p id="newsletter-message" role="status"></p></form>
+</div></section>
+</main>
+
+<footer class="wrap foot"><span>© <span id="year"></span> Ceylon Leaf · Demo store</span><a href="mailto:hello@ceylonleaf.example">hello@ceylonleaf.example</a></footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true" inert>
+  <div class="d-head"><h2>Your bag <span id="drawer-count">(0)</span></h2><button class="x" id="cart-close" type="button" aria-label="Close bag">×</button></div>
+  <div class="d-items" id="cart-items"></div>
+  <div class="d-empty" id="cart-empty"><h3>Your bag is empty.</h3><p>Add a tea to get started.</p><button class="btn" id="continue-shopping" type="button">Browse teas</button></div>
+  <div class="d-sum" id="cart-summary"><div class="row"><span>Subtotal</span><strong id="cart-subtotal">LKR 0</strong></div><p>Shipping calculated at checkout.</p><button class="btn full" id="checkout-open" type="button">Checkout</button></div>
+</aside>
+
+<dialog class="modal" id="checkout-modal"><form class="card" id="checkout-form">
+  <div class="d-head"><h2>Checkout</h2><button class="x" type="button" data-close="checkout-modal" aria-label="Close">×</button></div>
+  <p class="demo">Demo checkout. No payment is taken.</p>
+  <div id="checkout-summary"></div>
+  <div class="fields"><label>Full name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label><label class="wide">Delivery address<textarea name="address" rows="2" autocomplete="street-address" required></textarea></label></div>
+  <div class="row total"><span>Total</span><strong id="checkout-total">LKR 0</strong></div>
+  <button class="btn full" type="submit">Place order</button>
+</form></dialog>
+
+<dialog class="modal" id="success-modal"><div class="card center">
+  <h2>Order placed</h2><p id="success-message" role="status" aria-live="polite"></p><div class="box" id="success-order"></div>
+  <button class="btn full" type="button" data-close="success-modal">Continue shopping</button>
+  <button class="link-btn" id="success-orders" type="button">View order history</button>
+</div></dialog>
+
+<dialog class="modal" id="orders-modal"><div class="card">
+  <div class="d-head"><h2>Your orders</h2><button class="x" type="button" data-close="orders-modal" aria-label="Close">×</button></div>
+  <div id="order-history"></div>
+</div></dialog>
+</body></html>
